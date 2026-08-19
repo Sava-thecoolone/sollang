@@ -9,7 +9,7 @@ It is not meant to be used in any serious projects, however it is still quite po
 ## Run
 To enter REPL run main.py in src with no arguments, to run a file pass it as an argument
 
-You can also use the -ast flag to get the generated ast of a file
+You can also use the -ast flag to get the generated AST of a file
 
 ## Syntax
 SOL has simplistic syntax which is a combionation of lua and c
@@ -83,7 +83,7 @@ objects
 declare obj = <:
     val = 10
     func = function() this.val end
-    change = function() this.val = 10 end
+    change = function() this.val = 5 end
     getthis = function() this end
 :>
 
@@ -91,6 +91,29 @@ print(obj.val) # 10
 print(obj.func()) # 10
 print(obj.getthis().val) # 10
 print(obj.getthis().getthis().getthis().val) # 10
+obj.change()
+print(obj.val) # 5
+print(obj.func()) # 5
+```
+
+ast
+```python
+declare x = {print(10)} # everything in {} is not executed
+print(x) # (Body <(Prog <(Call <(Var print)> {<(Int 10)>})>)>)
+print({x}) # (Body <(Prog <(Var x)>)>)
+eval(x) # 10
+
+declare a = 10
+declare b = 20
+print({a+b}) # (Body <(Prog <(BinOp <(Var a)>, +, <(Var b)>)>)>)
+print(uneval(a+b)) # (Any 30), everything in uneval() is turned into an AST
+
+print(inline 5+5) # 10
+print({inline 5+5}) # (Body <(Prog <(Any 10)>)>)
+function inline square(x) x*x end
+print(try(square(5))) # (Error line 14 - undeclared variable 'square')
+print(inline square(5)) # 25
+print({inline square(5)}) # (Body <(Prog <(Any 25)>)>)
 ```
 
 You can look at .sol files in this directory for more examples
