@@ -338,7 +338,7 @@ class ContextFunction(ASTNode):
     def call(self, scope, argVals):
         res = []
         for i in argVals:
-            res.append(i.eval(scope))
+            res.append(i.value.eval(scope))
         return self.prog.value.eval(scope|{"this": self.context}|dict(zip(self.args, res)))
     
     def eval(self, scope):
