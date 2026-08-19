@@ -1,5 +1,5 @@
 # SOL
-*pronounced like 'soul'*
+*Stands for SecondOrderLang, pronounced like 'soul'*
 
 
 This is a simple language interpretter i made as a programming exercise
