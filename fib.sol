@@ -1,6 +1,5 @@
 declare sys = importffi("sys")
 declare math = importffi("math")
-declare decimal = importffi("decimal")
 sys.set_int_max_str_digits(10000000)
 
 function round(n)
@@ -8,8 +7,14 @@ function round(n)
 end
 
 function fib(n)
-    declare phi = (decimal.Decimal(1) + decimal.Decimal(5).sqrt()) / decimal.Decimal(2)
-    return round(phi^n / decimal.Decimal(5).sqrt())
+    declare a = 0
+    declare b = 1
+    for i=0 i<n i++
+        declare temp = copy(b)
+        b += a
+        a = temp
+    end
+    return a
 end
 
 declare start = time()
