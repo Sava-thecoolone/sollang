@@ -1,0 +1,23 @@
+{
+  "scopeName": "source.sol",
+  "patterns": [
+    {"match": "\\b(declare|if|else|while|for|foreach|break|continue|return|end)\\b", "name": "keyword.control.sol"},
+    {"match": "\\binline\\b", "name": "entity.name.tag.sol"},
+    {"match": "\\bfunction(\\s+inline)?\\s+([a-zA-Z0-9_:]+)", "captures": {"1": {"name": "entity.name.tag.sol"}, "2": {"name": "entity.name.function.sol"}}, "name": "keyword.control.sol"},
+    {"match": "\\bfunction\\b", "name": "keyword.control.sol"},
+    {"match": "#.*$", "name": "comment.line.sol"},
+    {"begin": "r?\"", "end": "\"", "patterns": [{"match": "\\\\.", "name": "constant.character.escape.mylang"}], "name": "string.quoted.double.sol"},
+    {"match": "\\b\\d*\\.\\d+\\b", "name": "constant.numeric.float.sol"},
+    {"match": "\\b\\d+\\b", "name": "constant.numeric.integer.sol"},
+    {"match": "\\btrue|false\\b", "name": "constant.language.sol"},
+    {"match": "\\+\\+|--", "name": "keyword.operator.sol"},
+    {"match": "\\+=|-=|\\*=|/=", "name": "keyword.operator.sol"},
+    {"match": "\\?\\?|[!|&]", "name": "keyword.operator.sol"},
+    {"match": "//|\\.\\.|[+\\-*\/%\\^]", "name": "keyword.operator.sol"},
+    {"match": "<=|>=|==|!=|[<>]", "name": "keyword.operator.sol"},
+    {"match": "=", "name": "keyword.operator.sol"},
+    {"match": "\\b(copy|print|printraw|printnoeval|printarr|autoeval|uneval|eval|evalwith|type|typeraw|len|tostr|getkey|MAX_FLOAT|MAX_INT|MIN_INT|INF|NaN|_|random|shuffle|metadeclare|append|try|assert|throw|geterrmsg|exit|readfile|writefile|loadfile|run|:exit|:help|:builtins|:scope)\\b", "name": "support.variable.sol"},
+    {"match": "[a-zA-Z0-9_:]+(?=\\s*\\()", "name": "entity.name.function.sol"},
+    {"match": "[a-zA-Z0-9_:]+", "name": "variable.sol"}
+  ]
+}

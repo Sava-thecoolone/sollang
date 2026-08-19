@@ -1,0 +1,29 @@
+{
+  "name": "sol-lang",
+  "displayName": "SOL",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "sol",
+        "extensions": [
+          ".sol"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sol",
+        "scopeName": "source.sol",
+        "path": "./syntaxes/sol.tmLanguage.json"
+      }
+    ]
+  }
+}
