@@ -8,7 +8,8 @@ It is not meant to be used in any serious projects, however it is still quite po
 
 ## Run
 To enter REPL run main.py in src with no arguments, to run a file pass it as an argument
-You can also use -ast to get the generated ast of a file
+
+You can also use the -ast flag to get the generated ast of a file
 
 ## Syntax
 SOL has simplistic syntax which is a combionation of lua and c
