@@ -34,7 +34,7 @@ print(x*y) # 200
 strings
 ```python
 declare x = "str"
-declare y = "int"
+declare y = "ing"
 print(x+y) # string
 print(x[0]) # s
 print(x[1]) # t
