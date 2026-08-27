@@ -12,7 +12,7 @@ To enter REPL run main.py in src with no arguments, to run a file pass it as an 
 You can also use the -ast flag to get the generated AST of a file
 
 ## Syntax
-SOL has simplistic syntax which is a combionation of lua and c
+SOL has simplistic syntax which is a combination of lua and c
 
 ### Examples
 hello world
